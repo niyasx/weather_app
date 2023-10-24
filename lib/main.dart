@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/view/home_page.dart';
+import 'package:weather_app/utils/theme/weather_theme.dart';
 import 'package:weather_app/view/splashscreen.dart';
-import 'package:weather_app/view/ui.dart';
+import 'package:weather_app/viewmodel/provider/theme_provider.dart';
 import 'package:weather_app/viewmodel/provider/weather_provider.dart';
 
 void main() {
@@ -18,21 +18,21 @@ class WeatherApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<LocationProvider>(
-            create: (context) => LocationProvider())
+            create: (context) => LocationProvider()),
+        ChangeNotifierProvider<ThemeProvider>(
+            create: (context) => ThemeProvider())
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: "weather",
-        // initialRoute: '/splash',
-        // routes: {
-        //   '/splash': (context) => SplashScreen(),
-        //   '/home': (context) => HomePage(),
-        //   '/homescreen': (context) => HomeScreen(),
-        // },
-        home:SplashScreen(),
-       
-
-      ),
+      child: Consumer<ThemeProvider>(
+          builder: (BuildContext context, value, Widget? child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: "weather",
+          theme: value.themeMode
+              ? ThemeManager.darkTheme
+              : ThemeManager.lightTheme,
+          home: const SplashScreen(),
+        );
+      }),
     );
   }
 }

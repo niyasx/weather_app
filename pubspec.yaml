@@ -37,7 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^1.1.0
   geolocator: ^10.1.0
-  geocode: ^1.0.3
   google_fonts: ^6.1.0
   anim_search_bar: ^2.0.3
   provider: ^6.0.5
@@ -45,6 +44,7 @@ dependencies:
   geocoding: ^2.1.0
   font_awesome_flutter:
   dark_light_button: ^0.0.2
+  flutter_switch: ^0.3.2
 
 dev_dependencies:
   flutter_test:
