@@ -29,6 +29,10 @@ Widget getClimateImage(String discription) {
     return Image.asset("assets/images/overcast-clouds.png");
   } else if (discription == 'smoke') {
     return Image.asset("assets/images/smoke.png");
+  }  else if (discription == 'moderate rain') {
+    return Image.asset("assets/images/heavy-rain.png");
+  } else if (discription == 'heavy intensity rain') {
+    return Image.asset("assets/images/heavy-rain.png");
   } else {
     return Image.asset("assets/images/sun.png");
   }

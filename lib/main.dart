@@ -15,6 +15,8 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  //  final proooo=  Provider.of<ThemeProvider>(context);
+  //  print(proooo);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<LocationProvider>(

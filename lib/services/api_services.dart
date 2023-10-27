@@ -3,7 +3,7 @@
 import 'dart:convert';
 import 'package:weather_app/constants/constants.dart';
 import 'package:weather_app/model/forecastweather/forecastweather.dart';
-import 'package:weather_app/model/weather_model.dart';
+import 'package:weather_app/model/weather/weather_model.dart';
 import 'package:http/http.dart' as http;
 
 //creating a class to perform api services

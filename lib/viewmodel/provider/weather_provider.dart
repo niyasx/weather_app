@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_app/model/forecastweather/forecastweather.dart';
-import 'package:weather_app/model/weather_model.dart';
+import 'package:weather_app/model/weather/weather_model.dart';
 import 'package:weather_app/services/api_services.dart';
 
 class LocationProvider with ChangeNotifier {
@@ -98,4 +98,18 @@ print('object');
           "000000000${locations[0].latitude} ${locations[0].longitude} 3333333333333");
     });
   }
+
+
+  Future<void> refreshWeatherData() async {
+  // Call the API to fetch updated weather data.
+  weatherModel = await apiService.fetchdatafromlatlon(
+      latLonposition?.latitude.toString(),
+      latLonposition?.longitude.toString());
+
+  forecastweather = await apiService.fetchforcastfromlatlon(
+      latitude: latLonposition?.latitude,
+      longitude: latLonposition?.longitude);
+
+  notifyListeners();
+}
 }
