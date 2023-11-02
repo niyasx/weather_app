@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/view/home_page.dart';
 import 'package:weather_app/viewmodel/provider/weather_provider.dart';
@@ -65,30 +66,20 @@ class SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     final locationProvider = Provider.of<LocationProvider>(context);
     return Scaffold(
-      body: Stack(
-        children: [
-          // Image.asset(
-          //   'assets/images/sky.jpg',
-          //   fit: BoxFit.cover,
-          //   width: double.infinity,
-          //   height: double.infinity,
-          // ),
-          Center(
-            child: locationDataAvailable
-                ? Text(
-                    locationProvider.weatherModel?.cityName ?? "Unknown",
-                    style: GoogleFonts.poppins(
-                        fontSize: 40,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black),
-                  )
-                : Image.asset(
-                    'assets/images/giphy.gif',
-                    width: 150,
-                    height: 150,
-                  ),
-          ),
-        ],
+      body: Center(
+        child: locationDataAvailable
+            ? Text(
+                locationProvider.weatherModel?.cityName ?? "Unknown",
+                style: GoogleFonts.poppins(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black),
+              )
+            : Lottie.asset(
+                'assets/images/animation.json',
+                height: 1000,
+                
+              ),
       ),
     );
   }

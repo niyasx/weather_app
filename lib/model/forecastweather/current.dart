@@ -9,7 +9,7 @@ class Current {
   int? pressure;
   int? humidity;
   double? dewPoint;
-  int? uvi;
+  var uvi;
   int? clouds;
   int? visibility;
   double? windSpeed;
@@ -42,7 +42,7 @@ class Current {
         pressure: json['pressure'] as int?,
         humidity: json['humidity'] as int?,
         dewPoint: (json['dew_point'] as num?)?.toDouble(),
-        uvi: json['uvi'] as int?,
+        uvi: json['uvi'],
         clouds: json['clouds'] as int?,
         visibility: json['visibility'] as int?,
         windSpeed: (json['wind_speed'] as num?)?.toDouble(),

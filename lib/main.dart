@@ -10,12 +10,17 @@ void main() {
   runApp(const WeatherApp());
 }
 
-class WeatherApp extends StatelessWidget {
+class WeatherApp extends StatefulWidget {
   const WeatherApp({super.key});
 
   @override
+  State<WeatherApp> createState() => _WeatherAppState();
+}
+
+class _WeatherAppState extends State<WeatherApp> {
+  @override
   Widget build(BuildContext context) {
-  //  final proooo=  Provider.of<ThemeProvider>(context);
+   
   //  print(proooo);
     return MultiProvider(
       providers: [
@@ -25,7 +30,9 @@ class WeatherApp extends StatelessWidget {
             create: (context) => ThemeProvider())
       ],
       child: Consumer<ThemeProvider>(
+        
           builder: (BuildContext context, value, Widget? child) {
+            final proooo=  Provider.of<ThemeProvider>(context);
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: "weather",

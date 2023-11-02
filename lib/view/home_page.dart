@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,16 +42,18 @@ class _HomePageState extends State<HomePage> {
     final currentDate = DateFormat('EEEE, MMM d').format(DateTime.now());
 
 
-  Future<void> _onRefresh() async {
+  Future<void> onRefresh() async {
     await pro.refreshWeatherData();
    
   }
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          toolbarHeight: screenSize.height * 0.08,
+          toolbarHeight: screenSize.height * 0.09,
           elevation: 0,
           centerTitle: true,
+          // leading: Text("weather app",
+          // style: GoogleFonts.poppins(fontSize: 18),),
           title: SizedBox(
             height: screenSize.height * 0.068,
             width: screenSize.width * 0.45,
@@ -79,6 +80,8 @@ class _HomePageState extends State<HomePage> {
                     () {
                       isloading = false;
                       searchpagecontroller.clear();
+
+                    
                     },
                   );
                 },
@@ -145,8 +148,18 @@ class _HomePageState extends State<HomePage> {
               width: screenSize.width * 0.02,
             )
           ],
+        //   bottom:    isloading
+        //     ? Center(
+        //         child: Image.asset(
+        //           'assets/images/giphy.gif',
+        //           width: 150,
+        //           height: 150,
+        //         ),
+        //       )
+        //     :
         ),
-        body: isloading
+        body:
+         isloading
             ? Center(
                 child: Image.asset(
                   'assets/images/giphy.gif',
@@ -154,12 +167,13 @@ class _HomePageState extends State<HomePage> {
                   height: 150,
                 ),
               )
-            : Consumer<ThemeProvider>(
+            : 
+            Consumer<ThemeProvider>(
                 builder: (BuildContext context, themeprovider, Widget? child) {
                   return SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: RefreshIndicator(
-                      onRefresh: _onRefresh,
+                      onRefresh: onRefresh,
                       child: Container(
                         height: screenSize.height,
                         width: screenSize.width,
@@ -493,7 +507,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               SizedBox(
                                 height: screenSize.height * 0.33,
-                                width: screenSize.width * 0.8,
+                                width: screenSize.width ,
                                 child: Column(
                                   children: [
                                     Container(
@@ -573,6 +587,7 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                           Row(
                                             children: [
+                                              SizedBox(width: screenSize.width*0.1),
                                               RichText(
                                                   text: TextSpan(children: [
                                                 TextSpan(
@@ -612,7 +627,7 @@ class _HomePageState extends State<HomePage> {
                                                             FontWeight.w600,
                                                         color: themepro.themeMode
                                                             ? Colors.white70
-                                                            : Colors.black)),
+                                                            : Colors.black),),
                                                 TextSpan(
                                                     text: pro.forecastweather!
                                                         .current!.uvi!
@@ -698,90 +713,3 @@ Container weatherDetails(
   );
 }
 
-// SingleChildScrollView(
-//   scrollDirection: Axis.horizontal,
-//   child: Row(
-//     mainAxisAlignment: MainAxisAlignment.spaceAround,
-//     children: [
-//       SizedBox(
-//         width: screenSize.width * 0.025,
-//       ),
-//       Container(
-//         height: screenSize.height * 0.25,
-//         width: screenSize.width * 0.23,
-//         decoration: BoxDecoration(
-//           gradient: const LinearGradient(
-//             colors: [
-//               Color.fromARGB(255, 31, 146, 223),
-//               Color.fromARGB(255, 172, 228, 232)
-//             ],
-//             begin: Alignment.bottomCenter,
-//             end: Alignment.topCenter,
-//             tileMode: TileMode.clamp,
-//           ),
-//           borderRadius: BorderRadius.circular(50),
-//         ),
-//       ),
-//       SizedBox(
-//         width: screenSize.width * 0.025,
-//       ),
-//       Container(
-//         height: screenSize.height * 0.25,
-//         width: screenSize.width * 0.23,
-//         decoration: BoxDecoration(
-//           gradient: const LinearGradient(
-//             colors: [
-//               Color.fromARGB(255, 31, 146, 223),
-//               Color.fromARGB(255, 172, 228, 232)
-//             ],
-//             begin: Alignment.bottomCenter,
-//             end: Alignment.topCenter,
-//             tileMode: TileMode.clamp,
-//           ),
-//           borderRadius: BorderRadius.circular(50),
-//         ),
-//       ),
-//       SizedBox(
-//         width: screenSize.width * 0.025,
-//       ),
-//       Container(
-//         height: screenSize.height * 0.25,
-//         width: screenSize.width * 0.23,
-//         decoration: BoxDecoration(
-//           gradient: const LinearGradient(
-//             colors: [
-//               Color.fromARGB(255, 31, 146, 223),
-//               Color.fromARGB(255, 172, 228, 232)
-//             ],
-//             begin: Alignment.bottomCenter,
-//             end: Alignment.topCenter,
-//             tileMode: TileMode.clamp,
-//           ),
-//           borderRadius: BorderRadius.circular(50),
-//         ),
-//       ),
-//       SizedBox(
-//         width: screenSize.width * 0.025,
-//       ),
-//       Container(
-//         height: screenSize.height * 0.25,
-//         width: screenSize.width * 0.23,
-//         decoration: BoxDecoration(
-//           gradient: const LinearGradient(
-//             colors: [
-//               Color.fromARGB(255, 31, 146, 223),
-//               Color.fromARGB(255, 172, 228, 232)
-//             ],
-//             begin: Alignment.bottomCenter,
-//             end: Alignment.topCenter,
-//             tileMode: TileMode.clamp,
-//           ),
-//           borderRadius: BorderRadius.circular(50),
-//         ),
-//       ),
-//       SizedBox(
-//         width: screenSize.width * 0.025,
-//       ),
-//     ],
-//   ),
-// )

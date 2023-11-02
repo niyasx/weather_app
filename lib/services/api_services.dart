@@ -47,12 +47,13 @@ class ApiService {
 //we are parcing the uri to a variable called apilink,
     final apiLink = Uri.parse(
         "https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric");
-
+        print("hhhhhhhhhhhhhh");
     //storing the api responce to a variable called responce
     final responce = await http.get(apiLink);
-
+ print("88888888888888");
     //then we are assigning the body of the responce to a variable called apibody
     final apiBody = jsonDecode(responce.body);
+       
 
     //here we are checking the status of the api call if status code is 200 ,that means the call is successful
     if (responce.statusCode == 200) {

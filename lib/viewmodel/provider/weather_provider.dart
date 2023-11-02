@@ -71,25 +71,7 @@ print('object');
         desiredAccuracy: LocationAccuracy.high);
   }
 
-  // decoding lat and lon  using geodecode package And get full details
-  // Future<void> _getAddressFromLatLon(Position position) async {
-  //   await placemarkFromCoordinates(position.latitude, position.longitude)
-  //       .then((placemarks) async {
-  //     decodeData = placemarks[0];
-
-  //     print("successfully decoded lat and lon\n${decodeData}\n**********");
-  //     print("currentlocation in geocode==${decodeData?.locality}");
-  // currentlocation = decodeData?.locality.toString();
-  //     print("current location is decoded and assigned to currentlocation variable");
-  // model = await apiService.fetchdatafromApi(currentlocation);
-  //     print("api data fetched to model class object");
-
-  //   }).catchError((e) {
-  //     debugPrint(e);
-  //   });
-  //   notifyListeners();
-  // }
-
+//encoding location name to latitude and longitude
   Future<void> getLatandLonFromAddress(String address) async {
     await locationFromAddress(address).then((locations) {
       latitude = locations[0].latitude;
