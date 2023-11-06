@@ -31,14 +31,14 @@ class _WeatherAppState extends State<WeatherApp> {
       ],
       child: Consumer<ThemeProvider>(
           builder: (BuildContext context, value, Widget? child) {
-            // final proooo=  Provider.of<ThemeProvider>(context);
+          
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: "weather",
           theme: value.themeMode
               ? ThemeManager.darkTheme
               : ThemeManager.lightTheme,
-          home:  SplashScreen(),
+          home:  const SplashScreen(),
         );
       }),
     );

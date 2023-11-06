@@ -50,7 +50,7 @@ class ThemeProvider with ChangeNotifier {
     final currentHour = currentTime.hour;
     final currentMinute = currentTime.minute;
 
-    if (currentHour == 12 && currentMinute >= 53) {
+    if (currentHour == 12 && currentMinute >= 00) {
       toggletheme(true); // Set dark theme when it's 12:15 or later
     } else {
       toggletheme(false); // Set light theme at other times
