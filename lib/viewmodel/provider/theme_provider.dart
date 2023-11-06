@@ -1,15 +1,16 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+
 
 class ThemeProvider with ChangeNotifier {
 
 
   ThemeProvider(){
-    changeThemeByTime();
+    // changeThemeByTime();
   }
   bool _isThemeDark = false;
+  bool isloading = false;
 
   get themeMode => _isThemeDark;
 

@@ -42,7 +42,7 @@ class SplashScreenState extends State<SplashScreen> {
         print("pushing to home page");
 
         await Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const HomePage()));
+            MaterialPageRoute(builder: (context) =>  HomePage()));
       } else {
         print("current location is not feched");
       }

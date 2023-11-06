@@ -69,6 +69,7 @@ print('object');
     return await Geolocator.getCurrentPosition(
         //setting the accuracy of location is to high for best experience
         desiredAccuracy: LocationAccuracy.high);
+
   }
 
 //encoding location name to latitude and longitude
@@ -79,6 +80,7 @@ print('object');
       print(
           "000000000${locations[0].latitude} ${locations[0].longitude} 3333333333333");
     });
+    notifyListeners();
   }
 
 
